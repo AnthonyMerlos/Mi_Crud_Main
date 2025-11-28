@@ -87,11 +87,10 @@
             <td class="bg-primary"><?= $datos->sostenedores ?></td>
             <td class="bg-info"><?= $datos->TV ?></td>
             <td>
-              <a href="http://localhost/hola/modificar_producto.php?id=<?= $datos->idcine ?>"
-                class="btn btn-small btn-warning">Editar</a>
+<a href="modificar_producto.php?id=<?= $datos->idcine ?>" class="btn btn-warning btn-sm">Editar</a>
 
-              <a href="controlador/eliminar_registro.php?id=<?= $datos->idcine ?>"
-                class="btn btn-small btn-danger">Eliminar</a>
+<a href="controlador/eliminar_registro.php?id=<?= $datos->idcine ?>" class="btn btn-danger btn-sm">Eliminar</a>
+
             </td>
           </tr>
         <?php } ?>

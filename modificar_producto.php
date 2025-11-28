@@ -1,13 +1,11 @@
 <?php
-include "modelo/conexion-pdo.php"; 
-
+include "modelo/conexion-pdo.php"; // apunta a la carpeta modelo
 
 if (!isset($_GET["id"])) {
     die("ID no enviado");
 }
 
 $id = $_GET["id"];
-
 
 $consulta = $conexion->prepare("SELECT * FROM cine WHERE idcine = ?");
 $consulta->execute([$id]);
@@ -17,20 +15,16 @@ if (!$registro) {
     die("Registro no encontrado");
 }
 
-
-
 if (isset($_POST["btn-actualizar"])) {
-
-    $Alarmas       = $_POST["cantidad_de_alarmas"];
-    $lamparas      = $_POST["cantidad_de_lamparas"];
-    $sillones      = $_POST["cantidad_de_sillones"];
-    $sostenedores  = $_POST["sostenedores"];
-    $TV            = $_POST["TV"];
+    $Alarmas      = $_POST["cantidad_de_alarmas"];
+    $lamparas     = $_POST["cantidad_de_lamparas"];
+    $sillones     = $_POST["cantidad_de_sillones"];
+    $sostenedores = $_POST["sostenedores"];
+    $TV           = $_POST["TV"];
 
     $actualizar = $conexion->prepare("UPDATE cine 
                                       SET Alarmas=?, lamparas=?, sillones=?, sostenedores=?, TV=? 
                                       WHERE idcine=?");
-
     $resultado = $actualizar->execute([$Alarmas, $lamparas, $sillones, $sostenedores, $TV, $id]);
 
     if ($resultado) {
@@ -41,6 +35,7 @@ if (isset($_POST["btn-actualizar"])) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
